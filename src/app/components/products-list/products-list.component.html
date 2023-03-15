@@ -1,0 +1,66 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3" style="width: 300px;">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="10000000"
+        [(ngModel)]="sku"
+      />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary"
+          type="button" (click)="searchProductBySku()"
+        > Search by SKU</button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="col-md-6">
+    <h4>Products List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let product of products; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveProduct(product, i)"
+      >{{ product.name }}
+      </li>
+    </ul>
+
+  </div>
+  <br>
+  <br>
+  <!-- View Details Products -->
+  <div class="col-md-6">
+    <div *ngIf="currentProduct">
+      <h4>Product</h4>
+      <div>
+        <label><strong>SKU:</strong></label>
+        {{ currentProduct.sku }}
+      </div>
+      <div>
+        <label><strong>Name:</strong></label>
+        {{ currentProduct.name }}
+      </div>
+      <div>
+        <label><strong>Price:</strong></label>
+        {{ currentProduct.price }}
+      </div>
+
+      <a  routerLink="/products/{{ currentProduct.sku }}">
+        Edit
+      </a>
+    </div>
+    
+
+    <div *ngIf="!currentProduct">
+      <br />
+      <p>Please click on a Product...</p>
+    </div>
+  </div>
+  <div class="input-group mb-3" style="width: 300px;">
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllProducts()">
+      Remove All Products
+    </button>
+</div>
+</div>

@@ -1,0 +1,123 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+
+    <form>
+      <div  class="form-group1">
+        <div class="form-group" style="width: 195px;">
+          <label for="sku">SKU</label>
+          <input
+            type="text"
+            maxlength="12"
+            class="form-control"
+            id="sku"
+            placeholder="FAL-1000000"
+            required
+            [(ngModel)]="product.sku"
+            name="sku"
+          >
+        </div>
+
+        <div class="form-group" style="width: 195px;">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            minlength="3"
+            maxlength="50"
+            placeholder="Short description of Produ.."
+            required
+            [(ngModel)]="product.name"
+            name="name"
+          />
+        </div>
+      </div>
+      <br>
+      <div  class="form-group1">
+        <div class="form-group" style="width: 195px;">
+          <label for="brand">Brand</label>
+          <input
+            type="text"
+            class="form-control"
+            id="brand"
+            minlength="3"
+            maxlength="50"
+            placeholder="Name of Brand"
+            required
+            [(ngModel)]="product.brand"
+            name="brand"
+          />
+        </div>
+
+        <div class="form-group" style="width: 195px;">
+          <label for="price">Price</label>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            min="1.00"
+            max="99999999.00"
+            placeholder="Example: 1.00"
+            required
+            [(ngModel)]="product.price"
+            name="price"
+          />
+        </div>
+      </div>
+
+      <br>
+      <div  class="form-group1">
+        <div class="form-group" style="width: 195px;">
+          <label for="size">Size</label>
+          <input
+            type="text"
+            class="form-control"
+            id="size"
+            placeholder="Size of the Product"
+            required
+            [(ngModel)]="product.size"
+            name="size"
+          />
+        </div>
+
+        <div class="form-group" style="width: 195px;">
+          <label for="principalImagen">Principal Imagen</label>
+          <input
+          type="text"
+            class="form-control"
+            id="principalImagen"
+            placeholder="https://hhhh.com"
+            required
+            [(ngModel)]="product.principalImagen"
+            name="principalImagen"
+          />
+        </div>
+      </div>
+
+      <br>
+      <div  class="form-group1">
+        <div class="form-group" style="width: 195px;">
+          <label for="otherImagen">Other Imagen</label>
+          <input
+            type="text"
+            class="form-control"
+            id="otherImagen"
+            placeholder="https://hhhh.com"
+            required
+            [(ngModel)]="product.otherImagen"
+            name="otherImagen"
+          />
+        </div>
+      </div>
+      <br>
+      <button (click)="saveProduct()" class="btn btn-success">Submit</button>
+    </form>
+  </div> 
+
+    <div *ngIf="submitted">
+      <h4>Product was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newProduct()">Add Back</button>
+    </div>
+  </div>
+</div>

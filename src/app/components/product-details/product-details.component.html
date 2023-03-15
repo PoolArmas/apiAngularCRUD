@@ -1,0 +1,99 @@
+<div>
+  <div *ngIf="currentProduct.id" class="edit-form">
+    <h4>Product</h4>
+    <form>
+      <div  class="form-group1">
+        <div class="form-group" style="width: 195px;">
+          <label for="sku">SKU</label>
+          <input
+            type="number"
+            class="form-control"
+            id="sku"
+            required
+            [(ngModel)]="currentProduct.sku"
+            name="sku"
+          />
+        </div>
+
+        <div class="form-group" style="width: 195px;">
+          <label for="description">Name</label>
+          <input
+            class="form-control"
+            id="name"
+            required
+            [(ngModel)]="currentProduct.name"
+            name="name"
+          />
+        </div>
+      </div>
+      <br>
+      <div  class="form-group1">
+        <div class="form-group" style="width: 195px;">
+          <label for="title">Brand</label>
+          <input
+            type="text"
+            class="form-control"
+            id="brand"
+            required
+            [(ngModel)]="currentProduct.brand"
+            name="brand"
+          />
+        </div>
+
+        <div class="form-group" style="width: 195px;">
+          <label for="description">Price</label>
+          <input
+            class="form-control"
+            id="price"
+            required
+            [(ngModel)]="currentProduct.price"
+            name="price"
+          />
+        </div>
+      </div>
+
+      <br>
+      <div  class="form-group1">
+        <div class="form-group" style="width: 195px;">
+          <label for="title">Size</label>
+          <input
+            type="text"
+            class="form-control"
+            id="size"
+            required
+            [(ngModel)]="currentProduct.size"
+            name="size"
+          />
+        </div>
+
+        <div class="form-group" style="width: 195px;">
+          <label for="description">Principal Imagen</label>
+          <input
+            class="form-control"
+            id="principalImagen"
+            required
+            [(ngModel)]="currentProduct.principalImagen"
+            name="principalImagen"
+          />
+        </div>
+      </div>
+    </form>
+    <br>
+
+    <fieldset>
+      <button class="m-3 btn btn-sm btn-danger" (click)="deleteProduct()">
+        Delete
+      </button>
+  
+      <button class="m-3 btn btn-sm btn-success" (click)="updateProduct()">
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </fieldset>
+
+
+  <div *ngIf="!currentProduct.id">
+    <br />
+    <p>Cannot access this Product...</p>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+
+.form-group1 {
+  display: flex; /*Convertimos al menú en flexbox*/
+  justify-content: space-between;
+  align-items: center;
+}
