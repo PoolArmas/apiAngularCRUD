@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
+import Utils from 'src/app/utils/utils';
 
 @Component({
   selector: 'app-products-list',
@@ -40,6 +41,7 @@ export class ProductsListComponent implements OnInit {
 
   setActiveProduct(products: Product, index: number): void {
     this.currentProduct = products;
+    this.currentProduct.price= Utils.formatPrice(this.currentProduct.price);
     this.currentIndex = index;
   } 
 
@@ -64,7 +66,6 @@ export class ProductsListComponent implements OnInit {
     this.productService.findBySku(this.sku)
     .subscribe({
       next : (data : any) => {
-          console.log("antes de llenarse con el response",this.products);
           this.products = [data];
           console.log(data);
         },
@@ -72,6 +73,10 @@ export class ProductsListComponent implements OnInit {
           console.log(err);
         }
       });
+  }
+
+  formatPrice(valor:any) {
+    return isNaN(valor) ? valor : parseFloat(valor).toFixed(2);
   }
 
 }

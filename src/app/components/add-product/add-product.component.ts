@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
+import Utils from 'src/app/utils/utils';
 
 @Component({
   selector: 'app-add-product',
@@ -27,7 +28,8 @@ export class AddProductComponent implements OnInit {
       otherImagen: this.product.otherImagen
     };
 
-    console.log("se guardara product",data)
+    console.log("mostrar precio",Utils.formatPrice(data.price));
+    data.price = Utils.formatPrice(data.price);
     this.productService.create(data)
       .subscribe({
         next : (response : any)=> {
@@ -46,3 +48,4 @@ export class AddProductComponent implements OnInit {
   }
 
 }
+

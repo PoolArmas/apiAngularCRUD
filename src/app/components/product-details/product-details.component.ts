@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
+import Utils from 'src/app/utils/utils';
 
 @Component({
   selector: 'app-product-details',
@@ -27,15 +28,14 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.message = '';
-    console.log("aqui falta obtener el id de algun lado xD",this.route.snapshot.params['id'])
     this.getProduct(this.route.snapshot.params['id']);
   }
 
-  getProduct(sku: any): void {
-    console.log("buscar details por sku",sku)
-    this.productService.findBySku(sku)
+  getProduct(id: any): void {
+    this.productService.findById(id)
     .subscribe({
       next : (data : any)=> {
+          data.price = Utils.formatPrice(data.price);
           this.currentProduct = data;
           console.log(data);
         },
@@ -73,4 +73,5 @@ export class ProductDetailsComponent implements OnInit {
         }
       });
   }
+
 }

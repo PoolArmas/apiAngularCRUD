@@ -20,6 +20,10 @@ export class ProductService {
     return this.http.get(`${baseUrl+"productBySku"}/${sku}`);
   }
 
+  findById(id: any): Observable<Product> {
+    return this.http.get(`${baseUrl+"productById"}/${id}`);
+  }
+
   create(data: any): Observable<any> {
     return this.http.post(baseUrl +"addProduct", data);
   }
@@ -33,7 +37,7 @@ export class ProductService {
   }
 
   deleteAll(): Observable<any> {
-    return this.http.delete(baseUrl);
+    return this.http.delete(baseUrl+"deleteAll");
   }
 
 }

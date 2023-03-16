@@ -6,9 +6,11 @@
         <div class="form-group" style="width: 195px;">
           <label for="sku">SKU</label>
           <input
-            type="number"
+            type="text"
+            maxlength="12"
             class="form-control"
             id="sku"
+            placeholder="FAL-1000000"
             required
             [(ngModel)]="currentProduct.sku"
             name="sku"
@@ -20,6 +22,9 @@
           <input
             class="form-control"
             id="name"
+            minlength="3"
+            maxlength="50"
+            placeholder="Short description of Produ.."
             required
             [(ngModel)]="currentProduct.name"
             name="name"
@@ -34,6 +39,9 @@
             type="text"
             class="form-control"
             id="brand"
+            minlength="3"
+            maxlength="50"
+            placeholder="Name of Brand"
             required
             [(ngModel)]="currentProduct.brand"
             name="brand"
@@ -43,8 +51,12 @@
         <div class="form-group" style="width: 195px;">
           <label for="description">Price</label>
           <input
+            type="text"
             class="form-control"
             id="price"
+            min="1.00"
+            max="99999999.00"
+            placeholder="Example: 1.00"
             required
             [(ngModel)]="currentProduct.price"
             name="price"
@@ -60,6 +72,7 @@
             type="text"
             class="form-control"
             id="size"
+            placeholder="Size of the Product"
             required
             [(ngModel)]="currentProduct.size"
             name="size"
@@ -71,6 +84,7 @@
           <input
             class="form-control"
             id="principalImagen"
+            placeholder="https://hhhh.com"
             required
             [(ngModel)]="currentProduct.principalImagen"
             name="principalImagen"

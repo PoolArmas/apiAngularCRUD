@@ -4,7 +4,7 @@ export class Product {
   name?: string;
   brand?: string;
   size?: string;
-  price?: number;
+  price?: any;
   principalImagen?: string;
   otherImagen?: string;
 }
